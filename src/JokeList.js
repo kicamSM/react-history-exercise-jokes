@@ -12,13 +12,6 @@ class JokeList extends Component {
   constructor(props) {
     super(props);
     this.state = { jokes: [] };
-
-    // this.getNewJokes = this.getNewJokes.bind(this);
-    // console.log('this.getNewJokes:', this.getNewJokes)
-    // this.resetVotes = this.resetVotes.bind(this);
-    // this.toggleLock = this.toggleLock.bind(this);
-    // this.vote = this.vote.bind(this);
-
   }
 
   componentDidMount() {
@@ -65,21 +58,6 @@ class JokeList extends Component {
     }
   }
 
-  /* empty joke list, set to loading state, and then call getJokes */
-
-  // getNewJokes() {
-  //   this.setState(st => ({ jokes: st.jokes.filter(j => j.locked)}));
-  // }
-
-  // resetVotes() {
-  //   window.localStorage.setItem("jokeVotes", "{}");
-  //   this.setState(st => ({
-  //     jokes: st.jokes.map(joke => ({ ...joke, votes: 0 }))
-  //   }));
-  // }
-
-
-  /* render: either loading spinner or list of sorted jokes. */
 
   render() {
     let sortedJokes = [...this.state.jokes].sort((a, b) => b.votes - a.votes);
