@@ -7,8 +7,14 @@ class Joke extends Component {
     vote: 0
   };
   
-  constructor(props) {
+  // constructor(props) {
+    constructor({text}) {
+
+    const { text } = text 
+    console.log("text:", text)
+
     super(props);
+    console.log('props:', props.text)
     this.upVote = this.upVote.bind(this);
     this.downVote = this.downVote.bind(this);
     this.toggleLock = this.toggleLock.bind(this);
@@ -52,7 +58,7 @@ class VoteRenderProps extends Component {
                 👍
               </button>
               <button onClick={obj.downVote}>
-                👎
+                👎 wah wah wah
               </button>
             </div>
           </div>

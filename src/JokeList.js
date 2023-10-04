@@ -104,7 +104,12 @@ class JokeList extends Component {
     let allLocked =
       sortedJokes.filter(j => j.locked).length === this.props.numJokesToGet;
     console.log('sortedJokes:', sortedJokes)
-    console.log('sortedJokes[0]:', sortedJokes[0])
+    // console.log('sortedJokes[0]:', sortedJokes[0])
+    // ! This is breaking the code beacuse of the asyncronous information
+
+    if (!sortedJokes.length) return <div>Loading...</div>;
+     console.log('!!!sortedJokes[0].joke:', sortedJokes[0].joke)
+
     // console.log('sortedJokes[0].joke:', sortedJokes[0].joke)
   // let joke1 = sortedJokes[0]
   // console.log('joke1.joke:', joke1.joke)
@@ -125,6 +130,11 @@ class JokeList extends Component {
         <button className="JokeList-getmore" onClick={this.resetVotes}>
           Reset Vote Counts
         </button>
+        <div>
+          {sortedJokes[0].joke}
+        </div>
+{/* The iissue is here */}
+        <Joke />
 
         {sortedJokes.map(j => (
           
@@ -138,6 +148,9 @@ class JokeList extends Component {
             toggleLock={this.toggleLock}
           />
         ))}
+        console.log('j.text:', j.text)
+
+      
 
         {sortedJokes.length < this.props.numJokesToGet ? (
           <div className="loading">
